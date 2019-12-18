@@ -542,7 +542,7 @@ Franken <- function(readin_files, resultsDir, marker_ids, fseed=NULL, xd = 20, y
     return(SOMList)
 }
 
-#' Build self-organizing map
+#' Build self-organizing map (borrowed from FlowSOM)
 #'
 #' @param  fsom
 #' @param  colsToUse
@@ -592,12 +592,10 @@ BuildSOMfrkn <- function(fsom, colsToUse = NULL, silent = FALSE, ...)
 #'
 #' @export
 GetClusters <- function(fsom) {
-  if (class(fsom) == "list" & !is.null(fsom$FlowSOM)) {
-    fsom <- fsom$FlowSOM
-  }
-  if (class(fsom) != "FlowSOM") {
-    stop("fsom should be a FlowSOM object.")
-  }
-  return(fsom$map$mapping[,1])
+
+  som_clusters         = fsom$map$mapping[,1]
+  som_meta_clusters    = fsom$metaclus$consensus_ids[som_clusters]
+
+  return(som_meta_clusters)
 }
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/Franken.R
 \name{BuildSOMfrkn}
 \alias{BuildSOMfrkn}
-\title{Build self-organizing map}
+\title{Build self-organizing map (borrowed from FlowSOM)}
 \usage{
 BuildSOMfrkn(fsom, colsToUse = NULL, silent = FALSE, ...)
 }
@@ -12,5 +12,5 @@ BuildSOMfrkn(fsom, colsToUse = NULL, silent = FALSE, ...)
 \item{colsToUse}{}
 }
 \description{
-Build self-organizing map
+Build self-organizing map (borrowed from FlowSOM)
 }
