@@ -28,17 +28,3 @@ read_aff_SOM 			= frk_ls$read_aff_SOM
 consensus_output 		= frk_ls$metaclus
 markerOutputs 			= frk_ls$markerOutputs
 
-
-Imports:
-    cccd
-    data.table
-    BiocGenerics
-    CytoML
-    RColorBrewer
-    XML
-    flowCore
-    flowWorkspace
-    igraph
-    methods
-    stats
-    tsne
