@@ -593,7 +593,7 @@ BuildSOMfrkn <- function(fsom, colsToUse = NULL, silent = FALSE, ...)
 #' @export
 GetClusters <- function(fsom) {
 
-  som_clusters         = fsom$map$mapping[,1]
+  som_clusters         = fsom$read_aff_SOM$map$mapping[,1]
   som_meta_clusters    = fsom$metaclus$consensus_ids[som_clusters]
 
   return(som_meta_clusters)
