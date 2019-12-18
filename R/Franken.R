@@ -526,7 +526,7 @@ Franken <- function(readin_files, resultsDir, marker_ids, fseed=NULL, xd = 20, y
     if (!is.null(fseed)){
     set.seed(fseed) # Encouraged for reproducibility
     }
-    read_aff_SOM            = BuildSOM(readin_files, colsToUse=marker_ids, xdim = xd , ydim = yd )
+    read_aff_SOM            = BuildSOMfrkn(readin_files, colsToUse=marker_ids, xdim = xd , ydim = yd )
 
     if (!is.null(fseed)){
     set.seed(fseed) # Encouraged for reproducibility
@@ -541,4 +541,31 @@ Franken <- function(readin_files, resultsDir, marker_ids, fseed=NULL, xd = 20, y
 
     return(SOMList)
 }
-
+BuildSOMfrkn <- function(fsom, colsToUse = NULL, silent = FALSE, ...) 
+{
+    if (!"data" %in% names(fsom)) {
+        stop("Please run the ReadInput function first!")
+    }
+    if (!silent) 
+        message("Building SOM\\n")
+    if (is.null(colsToUse)) {
+        colsToUse <- seq_len(ncol(fsom$data))
+    }
+    fsom$map <- SOM(fsom$data[, colsToUse], silent = silent, 
+        ...)
+    fsom$map$colsUsed <- colsToUse
+    fsom$map$medianValues <- t(sapply(seq_len(fsom$map$nNodes), 
+        function(i) {
+            apply(subset(fsom$data, fsom$map$mapping[, 1] == 
+                i), 2, stats::median)
+        }))
+    fsom$map$medianValues[is.nan(fsom$map$medianValues)] <- 0
+    colnames(fsom$map$medianValues) <- colnames(fsom$data)
+    fsom$map$sdValues <- t(sapply(seq_len(fsom$map$nNodes), function(i) {
+        apply(subset(fsom$data, fsom$map$mapping[, 1] == i), 
+            2, stats::sd)
+    }))
+    fsom$map$sdValues[is.nan(fsom$map$sdValues)] <- 0
+    colnames(fsom$map$sdValues) <- colnames(fsom$data)
+    fsom
+}
