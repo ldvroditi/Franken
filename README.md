@@ -25,29 +25,15 @@ This package is supported for macOS. The package has been tested on the followin
 
     macOS: Mojave (10.14.6)
 
-This package has been tested on R versions:
+### R versions:
+
+The package has been tested on the following R versions:
 
 	R 3.2, 3.4, 3.6 and 4 and depends on R (>= 3.2),
 
 # Get the package
 
 Franken can be installed use the devtools package (and should only take from 3-5 minutes):
-
-Some packages might not install automatically when Franken is installed (such as FlowSOM and flowCore). In that case, please run:
-
-if (!requireNamespace("BiocManager", quietly = TRUE))
-
-	install.packages("BiocManager")
-
-BiocManager::install("FlowSOM")
-
-if (!requireNamespace("BiocManager", quietly = TRUE))
-	
-	install.packages("BiocManager")
-
-BiocManager::install("flowCore")
-
-Then run: 
 
 ```R
 devtools::install_github("ldvroditi/Franken") 
