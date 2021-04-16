@@ -433,7 +433,7 @@ BuildKNNGfrkn <- function (fsom, kn, dist_method, silent = FALSE, tSNE = FALSE)
         fsom$MST$l2 <- tsne(fsom$map$codes)
     }
 
-    UpdateNodeSize(fsom)
+    FlowSOM::UpdateNodeSize(fsom)
 }
 
 #' Performs walktrap clustering of knn graph on SOM nodes
