@@ -558,7 +558,7 @@ BuildSOMfrkn <- function(fsom, colsToUse = NULL, silent = FALSE, ...)
   if (is.null(colsToUse)) {
     colsToUse <- seq_len(ncol(fsom$data))
   }
-  fsom$map <- SOM(fsom$data[, colsToUse], silent = silent,
+  fsom$map <- flowSOM::SOM(fsom$data[, colsToUse], silent = silent,
                   ...)
   fsom$map$colsUsed <- colsToUse
   fsom$map$medianValues <- t(sapply(seq_len(fsom$map$nNodes),
