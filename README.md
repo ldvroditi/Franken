@@ -38,6 +38,7 @@ Some packages might not install automatically when Franken is installed (such as
 if (!requireNamespace("BiocManager", quietly = TRUE))
 
 install.packages("BiocManager")
+
 BiocManager::install("FlowSOM")
 
 
