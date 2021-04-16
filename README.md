@@ -33,14 +33,12 @@ This package has been tested on R versions:
 
 Franken can be installed use the devtools package (and should only take from 3-5 minutes):
 
-Some packages might not install automatically when Franken is installed (such as FlowSOM) so please run:
+Some packages might not install automatically when Franken is installed (such as FlowSOM). In that case, please run:
 
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-
 BiocManager::install("FlowSOM")
 
-To install the FlowSOM package separately first. 
 
 Then run: 
 
