@@ -36,6 +36,7 @@ Franken can be installed use the devtools package (and should only take from 3-5
 Some packages might not install automatically when Franken is installed (such as FlowSOM). In that case, please run:
 
 if (!requireNamespace("BiocManager", quietly = TRUE))
+
 install.packages("BiocManager")
 BiocManager::install("FlowSOM")
 
