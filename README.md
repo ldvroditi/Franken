@@ -49,7 +49,7 @@ devtools::install_github("ldvroditi/Franken")
 
 # Demo
 
-For a demo of how to use Franken please see file TestDataRun.R
+For a demo of how to use Franken please see file TestDataRun.R (once the demo cytof data has been downloaded, this should run in a few minutes in a standard computer).
 
 The prostate cancer data in the Franken Bioarxiv pre-print will be published upon publication but the data in the demo (and used for benchmarking in the pre-print) is from:
 
