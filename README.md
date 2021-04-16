@@ -17,9 +17,9 @@ Hardware requirements
 
 Franken package requires only a standard computer with enough RAM to support the in-memory operations.
 
-Software requirements
+## Software requirements
 
-OS Requirements
+### OS Requirements
 
 This package is supported for macOS. The package has been tested on the following system:
 
@@ -33,19 +33,25 @@ This package has been tested on R versions:
 
 Franken can be installed use the devtools package (and should only take from 3-5 minutes):
 
-Some packages might not install automatically when Franken is installed (such as FlowSOM). In that case, please run:
+Some packages might not install automatically when Franken is installed (such as FlowSOM and flowCore). In that case, please run:
 
 if (!requireNamespace("BiocManager", quietly = TRUE))
 
-install.packages("BiocManager")
+	install.packages("BiocManager")
 
 BiocManager::install("FlowSOM")
 
+if (!requireNamespace("BiocManager", quietly = TRUE))
+	
+	install.packages("BiocManager")
+
+BiocManager::install("flowCore")
 
 Then run: 
 
+```R
 devtools::install_github("ldvroditi/Franken") 
-
+```
 
 # Demo
 
